@@ -1,0 +1,24 @@
+<div class="login-content" fxLayout="column" fxLayoutAlign="center center">
+  <div fxFlex="initial">
+    <mat-card class="login-card" @loginAnimation>
+      <div fxLayout="column">
+        <div fxFlex="initial">
+          <p class="login-title">Sign In</p>
+        </div>
+        <div fxFlex="initial" class="flex-container">
+          <form [formGroup]="loginFormGroup" (ngSubmit)="login()">
+            <mat-form-field style="width: 100%;">
+              <input matInput placeholder="Username"
+                     formControlName="username" (keyup.enter)="login();">
+            </mat-form-field>
+            <mat-form-field style="width: 100%;">
+              <input type="password" matInput placeholder="Password" autocomplete="off" formControlName="password">
+            </mat-form-field>
+            <mat-error *ngIf="loginError">{{loginError}}</mat-error>
+            <button type="submit" mat-raised-button color="primary" [disabled]="!loginFormGroup.valid">Sign In</button>
+          </form>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

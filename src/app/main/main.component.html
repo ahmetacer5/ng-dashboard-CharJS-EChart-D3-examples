@@ -1,0 +1,59 @@
+<script src="main.component.ts"></script>
+<div
+  fxLayout="column"
+  fxLayoutGap="16px"
+  style="height:  100%;">
+  <div fxFlex="initial">
+    <div
+      fxLayout="row"
+      fxLayoutGap="8px"
+      fxLayoutAlign="center center">
+      <div fxFlex="200px">
+        <mat-form-field style="width: 100%;">
+          <input type="text" placeholder="Currency Code" matInput [formControl]="currencyCtrl">
+        </mat-form-field>
+      </div>
+      <div fxFlex="initial">
+        <button mat-mini-fab (click)="addNew()" color="primary" matTooltip="Add new">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div fxFlex="initial">
+    <div
+      fxLayout="row"
+      fxLayoutGap="8px"
+      fxLayoutAlign="center center">
+      <div fxFlex="initial">
+        <a>Will reload after {{countDown | async}} seconds.</a>
+      </div>
+    </div>
+  </div>
+  <div fxFill>
+    <mat-table #table [dataSource]="dataSource" class="table-wrapper">
+      <ng-container matColumnDef="currenyCode">
+        <mat-header-cell *matHeaderCellDef> Currency Code.</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.currenyCode}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="euroPrice">
+        <mat-header-cell *matHeaderCellDef> Euro Price</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.euroPrice}}€</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef fxFlex="40px">
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row" fxFlex="40px">
+          <button mat-mini-fab (click)="deleteRow(row)" color="warn" matTooltip="Delete">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+</div>
