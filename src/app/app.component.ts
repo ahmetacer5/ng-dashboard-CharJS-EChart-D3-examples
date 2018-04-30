@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  getUserInfo() {
+    return JSON.parse(sessionStorage.getItem('SESSIONID'));
+  }
 }

@@ -1,59 +1,22 @@
-<script src="main.component.ts"></script>
-<div
-  fxLayout="column"
-  fxLayoutGap="16px"
-  style="height:  100%;">
-  <div fxFlex="initial">
-    <div
-      fxLayout="row"
-      fxLayoutGap="8px"
-      fxLayoutAlign="center center">
-      <div fxFlex="200px">
-        <mat-form-field style="width: 100%;">
-          <input type="text" placeholder="Currency Code" matInput [formControl]="currencyCtrl">
-        </mat-form-field>
-      </div>
-      <div fxFlex="initial">
-        <button mat-mini-fab (click)="addNew()" color="primary" matTooltip="Add new">
-          <mat-icon>add</mat-icon>
-        </button>
-      </div>
-    </div>
+<div fxLayout="row wrap" class="chart-wrapper" fxLayoutAlign="space-between center">
+  <div fxFlex="600px" fxFlex.xs="350px">
+    <p>ChartJS</p>
+    <app-user-logins></app-user-logins>
   </div>
-  <div fxFlex="initial">
-    <div
-      fxLayout="row"
-      fxLayoutGap="8px"
-      fxLayoutAlign="center center">
-      <div fxFlex="initial">
-        <a>Will reload after {{countDown | async}} seconds.</a>
-      </div>
-    </div>
+  <div fxFlex="600px" fxFlex.xs="350px">
+    <p>ChartJS</p>
+    <app-new-acounts></app-new-acounts>
   </div>
-  <div fxFill>
-    <mat-table #table [dataSource]="dataSource" class="table-wrapper">
-      <ng-container matColumnDef="currenyCode">
-        <mat-header-cell *matHeaderCellDef> Currency Code.</mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.currenyCode}}</mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="euroPrice">
-        <mat-header-cell *matHeaderCellDef> Euro Price</mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.euroPrice}}€</mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="delete">
-        <mat-header-cell *matHeaderCellDef fxFlex="40px">
-        </mat-header-cell>
-        <mat-cell *matCellDef="let row" fxFlex="40px">
-          <button mat-mini-fab (click)="deleteRow(row)" color="warn" matTooltip="Delete">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </mat-cell>
-      </ng-container>
-
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </mat-table>
+  <div fxFlex="600px" fxFlex.xs="350px">
+    <p>EChart User Activities</p>
+    <app-user-moves></app-user-moves>
+  </div>
+  <div fxFlex="600px" fxFlex.xs="350px">
+    <p>EChart</p>
+    <app-estimated-revenue></app-estimated-revenue>
+  </div>
+  <div fxFlex="600px" fxFlex.xs="350px">
+    <p>D3 Graph</p>
+    <app-graph></app-graph>
   </div>
 </div>

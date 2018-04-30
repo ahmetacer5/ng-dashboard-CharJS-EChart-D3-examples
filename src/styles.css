@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+.router-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+.table-wrapper {
+  max-height: 400px;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.user-name {
+  margin-right: 0;
+  margin-left: auto;
+  cursor: pointer;
+  text-decoration: underline;
+}
